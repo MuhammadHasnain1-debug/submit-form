@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - SkillBridge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .thank-you-card {
+            text-align: center;
+            padding: 50px 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thank-you-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background: #4bb543;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        .checkmark i {
+            color: white;
+            font-size: 40px;
+        }
+        
+        h1 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #2575fc;
+            font-weight: 600;
+        }
+        
+        .next-steps {
+            background: #f0f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+            border-left: 4px solid #2575fc;
+        }
+        
+        .next-steps h3 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .next-steps h3 i {
+            margin-right: 10px;
+        }
+        
+        .next-steps ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .next-steps li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+        
+        .contact-info h3 {
+            color: #2575fc;
+            margin-bottom: 15px;
+        }
+        
+        .email-link {
+            display: inline-block;
+            background: #2575fc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .email-link:hover {
+            background: #1c64e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2575fc;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #2575fc;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .back-link {
+            margin-top: 30px;
+            display: inline-block;
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #1c64e0;
+            text-decoration: underline;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @media (max-width: 600px) {
+            .thank-you-card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you-card">
+            <div class="checkmark">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h1>Thank You for Your Feedback!</h1>
+            
+            <p>We truly appreciate you taking the time to share your thoughts with us. Your input is invaluable in helping us create <span class="highlight">the perfect freelancing platform for students</span>.</p>
+            
+            <div class="next-steps">
+                <h3><i class="fas fa-lightbulb"></i> What Happens Next?</h3>
+                <ul>
+                    <li>Our team will carefully review your feedback</li>
+                    <li>We'll incorporate your suggestions into our development process</li>
+                    <li>You'll be among the first to know when we launch new features</li>
+                </ul>
+                <p>We're committed to building a platform that truly meets the needs of student freelancers like you!</p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Interested in Contributing?</h3>
+                <p>If you'd like to get more involved with our platform development, we'd love to hear from you!</p>
+                <a href="mailto:team@skillbridge.com?subject=Interest in Contributing" class="email-link">
+                    <i class="fas fa-paper-plane"></i> Contact Our Team
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <a href="form.html" class="back-link">Return to Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        // Add a subtle animation to the checkmark
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkmark = document.querySelector('.checkmark');
+            setTimeout(function() {
+                checkmark.classList.add('animated');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

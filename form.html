@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Share your feedback to help us create the perfect freelancing platform for students">
+  <title>Student Feedback - SkillBridge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* (kept your styles; unchanged) */
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Tahoma, Geneva, Verdana, sans-serif}
+    body{background:linear-gradient(135deg,#6a11cb 0%,#2575fc 100%);color:#333;line-height:1.6;padding:20px;min-height:100vh}
+    .container{max-width:800px;margin:0 auto}
+    .header{text-align:center;padding:30px 20px;background:white;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.1);margin-bottom:25px}
+    .header h1{color:#2575fc;margin-bottom:10px}
+    .header p{color:#666;font-size:18px}
+    .instructions{background:#fff8e1;border-left:4px solid #ffc107;padding:20px;margin-bottom:25px;border-radius:6px}
+    .form-container{background:white;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:30px;margin-bottom:25px}
+    .form-section{margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #eee}
+    .form-section h2{color:#2575fc;margin-bottom:20px;display:flex;align-items:center}
+    .form-section h2 i{margin-right:10px}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;margin-bottom:8px;font-weight:600;color:#444}
+    .form-control{width:100%;padding:12px 15px;border:1px solid #ddd;border-radius:6px;font-size:16px;transition:border .3s}
+    .form-control:focus{outline:none;border-color:#2575fc;box-shadow:0 0 0 2px rgba(37,117,252,.2)}
+    textarea.form-control{min-height:120px;resize:vertical}
+    .radio-group,.checkbox-group{margin-top:10px}
+    .radio-group label,.checkbox-group label{display:flex;align-items:center;margin-bottom:12px;font-weight:normal;cursor:pointer}
+    .radio-group input,.checkbox-group input{margin-right:10px;cursor:pointer}
+    .rating{display:flex;gap:15px;margin-top:10px}
+    .rating input{display:none}
+    .rating label{cursor:pointer;font-size:24px;color:#ddd;transition:color .3s}
+    .rating input:checked ~ label{color:#ffc107}
+    .rating label:hover,.rating label:hover ~ label{color:#ffc107}
+    .btn{background:#2575fc;color:white;border:none;padding:14px 28px;font-size:18px;border-radius:6px;cursor:pointer;transition:background .3s;display:block;width:100%;font-weight:600}
+    .btn:hover{background:#1c64e0}
+    .required{color:#e74c3c}
+    .thank-you{text-align:center;padding:40px;background:white;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.1);display:none}
+    .thank-you h2{color:#2575fc;margin-bottom:20px}
+    .thank-you p{color:#666;font-size:18px;margin-bottom:30px}
+    .error-message{color:#e74c3c;font-size:14px;margin-top:5px;display:none}
+    .contribution-section{background-color:#f0f7ff;padding:20px;border-radius:8px;border-left:4px solid #2575fc;margin-top:20px}
+    .contribution-section h3{color:#2575fc;margin-bottom:15px}
+    .email-link{display:inline-block;background:#2575fc;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:10px;font-weight:600}
+    .email-link:hover{background:#1c64e0}
+    @media(max-width:600px){.form-container{padding:20px}.header h1{font-size:24px}.header p{font-size:16px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Student Freelancing App Feedback</h1>
+      <p>Help us create the perfect platform for student freelancers</p>
+    </div>
+
+    <div class="instructions">
+      <h2><i class="fas fa-info-circle"></i> How This Form Works</h2>
+      <p>Your feedback will be sent directly to our team. We'll use this information to build a better platform for student freelancers.</p>
+    </div>
+
+    <!-- ======= Replace YOUR_EMAIL and YOUR_THANKYOU_URL below =======
+         Action uses FormSubmit. Replace YOUR_EMAIL with your email.
+         Replace YOUR_THANKYOU_URL with your full GitHub Pages thankyou.html URL.
+    -->
+    <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbzQw_-MLJW65ztl9SSD1tYfpY3kp52jAfLM7Rb8weer0zvbE54537_LysvlIuKevYCViw/exec" method="POST">
+      <input type="hidden" name="_subject" value="New Student Feedback Submission">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="YOUR_THANKYOU_URL">
+      <input type="hidden" name="_captcha" value="true">
+
+      <div class="form-container">
+        <!-- Personal -->
+        <div class="form-section">
+          <h2><i class="fas fa-user-graduate"></i> Personal Information</h2>
+          <div class="form-group">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your full name">
+            <div class="error-message" id="nameError">Please enter your full name</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email" autocomplete="email">
+            <div class="error-message" id="emailError">Please enter a valid email address</div>
+          </div>
+          <div class="form-group">
+            <label for="education">Education Level <span class="required">*</span></label>
+            <select id="education" name="education" class="form-control" required>
+              <option value="">Select your education level</option>
+              <option value="highschool">High School</option>
+              <option value="undergraduate">Undergraduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="phd">PhD</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="error-message" id="educationError">Please select your education level</div>
+          </div>
+          <div class="form-group">
+            <label for="major">Field of Study/Major</label>
+            <input type="text" id="major" name="major" class="form-control" placeholder="e.g. Computer Science, Business, Design" autocomplete="organization">
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="form-section">
+          <h2><i class="fas fa-briefcase"></i> Freelancing Experience</h2>
+          <div class="form-group">
+            <label>Have you done freelancing work before? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="experience" value="yes" required> Yes</label>
+              <label><input type="radio" name="experience" value="no"> No</label>
+            </div>
+            <div class="error-message" id="experienceError">Please select an option</div>
+          </div>
+
+          <div class="form-group">
+            <label>Which platforms have you used? (Select all that apply)</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="platforms" value="fiverr"> Fiverr</label>
+              <label><input type="checkbox" name="platforms" value="upwork"> Upwork</label>
+              <label><input type="checkbox" name="platforms" value="freelancer"> Freelancer</label>
+              <label><input type="checkbox" name="platforms" value="other"> Other</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>What type of freelance work do you do or want to do? <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="work_type" value="writing"> Writing & Translation</label>
+              <label><input type="checkbox" name="work_type" value="design"> Graphic Design</label>
+              <label><input type="checkbox" name="work_type" value="programming"> Programming & Tech</label>
+              <label><input type="checkbox" name="work_type" value="marketing"> Digital Marketing</label>
+              <label><input type="checkbox" name="work_type" value="video"> Video & Animation</label>
+              <label><input type="checkbox" name="work_type" value="business"> Business Consulting</label>
+            </div>
+            <div class="error-message" id="workTypeError">Please select at least one option</div>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="form-section">
+          <h2><i class="fas fa-lightbulb"></i> App Features & Preferences</h2>
+          <div class="form-group">
+            <label>What features are most important to you in a freelancing platform? <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="features" value="easy-to-use"> Easy-to-use interface</label>
+              <label><input type="checkbox" name="features" value="low-fees"> Low commission fees</label>
+              <label><input type="checkbox" name="features" value="payment-protection"> Payment protection</label>
+              <label><input type="checkbox" name="features" value="dispute-resolution"> Dispute resolution</label>
+              <label><input type="checkbox" name="features" value="mobile-app"> Mobile app</label>
+              <label><input type="checkbox" name="features" value="community"> Community features</label>
+            </div>
+            <div class="error-message" id="featuresError">Please select at least one feature</div>
+          </div>
+
+          <div class="form-group">
+            <label>How would you prefer to find work? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="work_preference" value="bidding" required> Bidding on projects</label>
+              <label><input type="radio" name="work_preference" value="catalog"> Creating service catalog</label>
+              <label><input type="radio" name="work_preference" value="both"> Both</label>
+            </div>
+            <div class="error-message" id="workPreferenceError">Please select an option</div>
+          </div>
+
+          <div class="form-group">
+            <label for="pricing">What commission rate do you think is fair? (Percentage of your earnings)</label>
+            <select id="pricing" name="pricing" class="form-control">
+              <option value="">Select a percentage</option>
+              <option value="5">5% or less</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+              <option value="more">More than 20%</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Additional -->
+        <div class="form-section">
+          <h2><i class="fas fa-comments"></i> Additional Feedback</h2>
+          <div class="form-group">
+            <label for="challenges">What are the biggest challenges you face as a student freelancer?</label>
+            <textarea id="challenges" name="challenges" class="form-control" placeholder="Please share your challenges..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="suggestions">What would your ideal freelancing platform include?</label>
+            <textarea id="suggestions" name="suggestions" class="form-control" placeholder="Your ideas and suggestions..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>How likely are you to use a student-focused freelancing app? <span class="required">*</span></label>
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:5px"><span>Very unlikely</span><span>Very likely</span></div>
+            <div class="error-message" id="ratingError">Please rate how likely you are to use the app</div>
+          </div>
+        </div>
+
+        <!-- Involvement -->
+        <div class="form-section">
+          <h2><i class="fas fa-handshake"></i> Get Involved</h2>
+          <div class="form-group">
+            <label>Are you interested in contributing or working with our team? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="contribution_interest" value="yes" required> Yes, I'd love to be involved</label>
+              <label><input type="radio" name="contribution_interest" value="maybe"> Maybe, tell me more</label>
+              <label><input type="radio" name="contribution_interest" value="no"> Not at this time</label>
+            </div>
+            <div class="error-message" id="contributionError">Please select an option</div>
+          </div>
+
+          <div class="contribution-section">
+            <h3><i class="fas fa-envelope"></i> Contact Us About Opportunities</h3>
+            <p>If you're interested in contributing to our platform or joining our team, please email us with information about your skills and how you'd like to be involved.</p>
+            <a href="mailto:opportunities@yourfreelancingapp.com?subject=Interest in Contributing&body=Hi there! I'm interested in contributing to your platform. Here's a bit about me and how I'd like to help:" class="email-link">
+              <i class="fas fa-paper-plane"></i> Email Our Team
+            </a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Submit Feedback</button>
+      </div>
+    </form>
+
+    <div class="thank-you" id="thankYou">
+      <h2>Thank You for Your Feedback!</h2>
+      <p>Your input is valuable in helping us create a better freelancing platform for students.</p>
+      <p>We'll be in touch if we have any follow-up questions.</p>
+      <div class="contribution-section" style="margin-top:20px">
+        <h3>Interested in working with us?</h3>
+        <p>If you expressed interest in contributing to our platform, we'll be in touch soon. In the meantime, feel free to email us directly:</p>
+        <a href="mailto:opportunities@yourfreelancingapp.com?subject=Interest in Contributing" class="email-link">
+          <i class="fas fa-paper-plane"></i> Email Our Team
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Validation that allows normal form submission when valid.
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+      document.querySelectorAll('.error-message').forEach(m => m.style.display = 'none');
+      let isValid = true;
+
+      if (!document.getElementById('name').value.trim()) { document.getElementById('nameError').style.display = 'block'; isValid = false; }
+      const email = document.getElementById('email').value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) { document.getElementById('emailError').style.display = 'block'; isValid = false; }
+      if (!document.getElementById('education').value) { document.getElementById('educationError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="experience"]:checked')) { document.getElementById('experienceError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="work_type"]:checked')) { document.getElementById('workTypeError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="features"]:checked')) { document.getElementById('featuresError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="work_preference"]:checked')) { document.getElementById('workPreferenceError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="rating"]:checked')) { document.getElementById('ratingError').style.display = 'block'; isValid = false; }
+      if (!document.querySelector('input[name="contribution_interest"]:checked')) { document.getElementById('contributionError').style.display = 'block'; isValid = false; }
+
+      if (!isValid) {
+        e.preventDefault();
+        const firstError = document.querySelector('.error-message[style*="display: block"]');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      // if valid, allow normal submit — FormSubmit will handle redirect to _next
+    });
+  </script>
+</body>
+</html>
