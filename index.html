@@ -189,7 +189,7 @@
           <div class="form-group">
             <label>How likely are you to use a student-focused freelancing app? <span class="required">*</span></label>
             <div class="rating">
-              <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+              <input type="radio" id="star5" name="rating" value="5" ><label for="star5">★</label>
               <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
               <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
               <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
@@ -233,38 +233,46 @@
       <div class="contribution-section" style="margin-top:20px">
         <h3>Interested in working with us?</h3>
         <p>If you expressed interest in contributing to our platform, we'll be in touch soon. In the meantime, feel free to email us directly:</p>
-        <a href="mailto:opportunities@yourfreelancingapp.com?subject=Interest in Contributing" class="email-link">
-          <i class="fas fa-paper-plane"></i> Email Our Team
-        </a>
+      <a href="mailto:projectadvice106@gmail.com?subject=Interest%20in%20Contributing" class="email-link">Email Our Team</a>
+      
+
+
       </div>
     </div>
   </div>
 
-  <script>
-    // Validation that allows normal form submission when valid.
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-      document.querySelectorAll('.error-message').forEach(m => m.style.display = 'none');
-      let isValid = true;
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+  // clear errors
+  document.querySelectorAll('.error-message').forEach(m => m.style.display = 'none');
+  let isValid = true;
 
-      if (!document.getElementById('name').value.trim()) { document.getElementById('nameError').style.display = 'block'; isValid = false; }
-      const email = document.getElementById('email').value.trim();
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email || !emailPattern.test(email)) { document.getElementById('emailError').style.display = 'block'; isValid = false; }
-      if (!document.getElementById('education').value) { document.getElementById('educationError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="experience"]:checked')) { document.getElementById('experienceError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="work_type"]:checked')) { document.getElementById('workTypeError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="features"]:checked')) { document.getElementById('featuresError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="work_preference"]:checked')) { document.getElementById('workPreferenceError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="rating"]:checked')) { document.getElementById('ratingError').style.display = 'block'; isValid = false; }
-      if (!document.querySelector('input[name="contribution_interest"]:checked')) { document.getElementById('contributionError').style.display = 'block'; isValid = false; }
+  if (!document.getElementById('name').value.trim()) { document.getElementById('nameError').style.display = 'block'; isValid = false; }
+  const email = document.getElementById('email').value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailPattern.test(email)) { document.getElementById('emailError').style.display = 'block'; isValid = false; }
+  if (!document.getElementById('education').value) { document.getElementById('educationError').style.display = 'block'; isValid = false; }
+  if (!document.querySelector('input[name="experience"]:checked')) { document.getElementById('experienceError').style.display = 'block'; isValid = false; }
+  if (!document.querySelector('input[name="work_type"]:checked')) { document.getElementById('workTypeError').style.display = 'block'; isValid = false; }
+  if (!document.querySelector('input[name="features"]:checked')) { document.getElementById('featuresError').style.display = 'block'; isValid = false; }
+  if (!document.querySelector('input[name="work_preference"]:checked')) { document.getElementById('workPreferenceError').style.display = 'block'; isValid = false; }
+  // rating check removed to make it optional
+  if (!document.querySelector('input[name="contribution_interest"]:checked')) { document.getElementById('contributionError').style.display = 'block'; isValid = false; }
 
-      if (!isValid) {
-        e.preventDefault();
-        const firstError = document.querySelector('.error-message[style*="display: block"]');
-        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      // if valid, allow normal submit — FormSubmit will handle redirect to _next
-    });
-  </script>
+  if (!isValid) {
+    e.preventDefault();
+    const firstError = document.querySelector('.error-message[style*="display: block"]');
+    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // valid -> allow native submit. Add fallback redirect after short delay
+  setTimeout(()=> {
+    window.location.href = 'https://muhammadhasnain1-debug.github.io/submit-form/thankyou.html';
+  }, 1200);
+  // do not call e.preventDefault(); native POST proceeds
+});
+</script>
+
 </body>
 </html>
